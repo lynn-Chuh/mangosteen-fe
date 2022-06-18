@@ -6,6 +6,7 @@ specifiers:
   normalize.css: 8.0.1
   sass: 1.49.11
   typescript: 4.6.3
+  vh-check: 2.0.5
   vite: 2.9.1
   vue: 3.2.31
   vue-router: 4.0.16
@@ -14,6 +15,7 @@ specifiers:
 dependencies:
   normalize.css: 8.0.1
   sass: 1.49.11
+  vh-check: 2.0.5
   vue: 3.2.31
   vue-router: 4.0.16_vue@3.2.31
 
@@ -1434,6 +1436,10 @@ packages:
     resolution: {integrity: sha512-1uEe95xksV1O0CYKXo8vQvN1JEbtJp7lb7C5U9HMsIp6IVwntkH/oNUzyVNQSd4S1sYk2FpSSW44FqMc8qee5w==}
     engines: {node: '>=4'}
     dev: true
+
+  /vh-check/2.0.5:
+    resolution: {integrity: sha512-vHtIYWt9uLl2P2tLlatVpMwv9+ezuJCtMNjUVIpzd5Pa/dJXN8AtqkKmVRcNSlmXyCjkCkbMQX/Vs9axmdlfgg==}
+    dev: false
 
   /vite/2.9.1_sass@1.49.11:
     resolution: {integrity: sha512-vSlsSdOYGcYEJfkQ/NeLXgnRv5zZfpAsdztkIrs7AZHV8RCMZQkwjo4DS5BnrYTqoWqLoUe1Cah4aVO4oNNqCQ==}

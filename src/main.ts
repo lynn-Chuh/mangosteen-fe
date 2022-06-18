@@ -5,6 +5,9 @@ import { routes } from './config/routes'
 import { history } from './utils/history'
 
 import 'normalize.css'
+import vhCheck from 'vh-check'
+
+vhCheck('browser-address-bar')
 
 const router = createRouter({ routes,history })
 
