@@ -1,10 +1,9 @@
-import { defineComponent } from "vue";
 import { RouterView } from "vue-router";
 import s from './Welcome.module.scss'
 import logo from '../assets/icons/mangosteen.svg'
 
 
-export default defineComponent({
+export default {
   name: 'Welcome',
   render(){
     return <div class={[s.wrapper, 'flex-col','items-center']}>
@@ -15,4 +14,4 @@ export default defineComponent({
       <main class="grow-1"><RouterView /></main>
     </div>
   }
-})
+}
