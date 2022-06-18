@@ -15,6 +15,7 @@
     "vue-tsc": "0.29.8"
   },
   "dependencies": {
-    "vue": "3.2.31"
+    "vue": "3.2.31",
+    "vue-router": "4.0.16"
   }
 }
