@@ -21,7 +21,7 @@ export const routes:RouteRecordRaw[] = [
       },
       {
         path:'1',
-        component: _import('components/welcome'),
+        component: _import('components/welcomeLayout'),
         props:{
           next:'/welcome/2',
           icon: pig,
@@ -30,7 +30,7 @@ export const routes:RouteRecordRaw[] = [
       },
       {
         path:'2',
-        component: _import('components/welcome'),
+        component: _import('components/welcomeLayout'),
         props:{
           next:'/welcome/3',
           icon: clock,
@@ -39,7 +39,7 @@ export const routes:RouteRecordRaw[] = [
       },
       {
         path:'3',
-        component: _import('components/welcome'),
+        component: _import('components/welcomeLayout'),
         props:{
           next:'/welcome/4',
           icon: chart,
@@ -48,7 +48,7 @@ export const routes:RouteRecordRaw[] = [
       },
       {
         path:'4',
-        component: _import('components/welcome'),
+        component: _import('components/welcomeLayout'),
         props:{
           next:'',
           icon: cloud,
