@@ -3,6 +3,7 @@ import { RouterLink, RouteLocationRaw } from "vue-router";
 import s from "./welcome.module.scss";
 
 export default defineComponent({
+  name: 'WelcomeAction',
   props: {
     next: String,
   },
