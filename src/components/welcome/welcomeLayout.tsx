@@ -11,7 +11,7 @@ export default defineComponent({
     return () => (
       <div class={[s.wrapper,'flex-col','grow-1']}>
         <div class={[s.card,'grow-1','flex-col','justify-center','items-center','text-center']}>
-          <img src={props.icon} />
+          <svg-icon class={s.icon} icon={props.icon}/>
             {
             props.text ? 
             (<h2>

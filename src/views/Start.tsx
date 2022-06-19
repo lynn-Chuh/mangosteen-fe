@@ -4,7 +4,9 @@ export default defineComponent({
   name: 'Start',
   setup(){
     return ()=> <>
-      <div>start</div>
+      <div>
+        <svg-icon icon="chart"/>
+      </div>
     </>
   }
 })

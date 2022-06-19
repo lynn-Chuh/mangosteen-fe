@@ -1,6 +1,5 @@
-import { NavigationGuardNext, RouteLocationNormalized, RouteLocationNormalizedLoaded, RouterView } from "vue-router";
+import { RouteLocationNormalizedLoaded, RouterView } from "vue-router";
 import s from './Welcome.module.scss'
-import logo from '../assets/icons/mangosteen.svg'
 import { ref, Transition, VNode } from "vue";
 
 
@@ -10,7 +9,7 @@ export default {
   render(){
     return <div class={[s.wrapper, 'flex-col','items-center']}>
       <header class='flex-col items-center'>
-        <img src={logo} />
+        <svg-icon class={s.icon} icon="mangosteen"/>
         <h1>山竹记账</h1>
       </header>
       <main class="grow-1">
