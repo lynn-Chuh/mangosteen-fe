@@ -1,14 +1,13 @@
 import { RouteRecordRaw } from 'vue-router';
-// import { defineAsyncComponent } from 'vue'
-// const _import = (path:string) => defineAsyncComponent(() => import(`../views/${path}.tsx`))
+import Welcome from '../views/Welcome';
+import Frist from '../components/welcome/Frist';
+import Second from '../components/welcome/Second';
+import Third from '../components/welcome/Third';
+import Forth from '../components/welcome/Forth';
+
+
 
 const _import = (path:string,suffix = 'tsx') => () => import(`../${path}.${suffix}`)
-
-import pig from '../assets/icons/pig.svg';
-import clock from '../assets/icons/clock.svg';
-import cloud from '../assets/icons/cloud.svg';
-import chart from '../assets/icons/chart.svg';
-import Welcome from '../views/Welcome';
 
 export const routes:RouteRecordRaw[] = [
   {
@@ -21,40 +20,54 @@ export const routes:RouteRecordRaw[] = [
       },
       {
         path:'1',
-        component: _import('components/welcomeLayout'),
+        components: {
+          main: Frist,
+          footer: _import('components/welcome/welcomeActions')
+        },
         props:{
-          next:'/welcome/2',
-          icon: pig,
-          text:['会挣钱','还要会省钱']
+          footer:{
+            next:'/welcome/2',            
+          }
+          
         }
       },
       {
         path:'2',
-        component: _import('components/welcomeLayout'),
+        components: {
+          main: Second,
+          footer: _import('components/welcome/welcomeActions')
+        },
         props:{
-          next:'/welcome/3',
-          icon: clock,
-          text:['每日提醒','不会遗漏每一笔账单']
+          footer:{
+            next:'/welcome/3',         
+          }
         }
       },
       {
         path:'3',
-        component: _import('components/welcomeLayout'),
+        components: {
+          main: Third,
+          footer: _import('components/welcome/welcomeActions')
+        },
         props:{
-          next:'/welcome/4',
-          icon: chart,
-          text:['数据可视化','收支一目了然']
+          footer:{
+            next:'/welcome/4',         
+          }
         }
       },
       {
         path:'4',
-        component: _import('components/welcomeLayout'),
+        components:{
+          main: Forth,
+          footer: _import('components/welcome/welcomeActions')  
+        },
         props:{
-          next:'',
-          icon: cloud,
-          text: ['云备份','再也不怕数据丢失']
-        }
+          footer:{
+            next:'',         
+          }
+        },   
       },
+     
     ]
   },
   {
