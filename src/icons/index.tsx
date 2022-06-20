@@ -1,5 +1,5 @@
 import s from './index.module.scss'
-import { computed, defineComponent } from 'vue'
+import { defineComponent } from 'vue'
 
 export default defineComponent({
   props:{
@@ -9,12 +9,9 @@ export default defineComponent({
     },
   },
   setup(props){
-    const iconName = computed(() => {
-      return `#icon-${props.icon}`
-    })
     return  ()=> 
       <svg class={[s['svg-icon'],`svg-${props.icon}-icon`]} aria-hidden="true">
-        <use xlinkHref={iconName.value} />
+        <use xlinkHref={`#icon-${props.icon}`} />
       </svg>
   }
 })
