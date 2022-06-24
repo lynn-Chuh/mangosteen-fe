@@ -1,7 +1,8 @@
-import { NavigationGuardNext, RouteLocationNormalized, RouteLocationNormalizedLoaded, RouteRecordRaw, RouterView } from "vue-router";
+import { NavigationGuardNext, RouteLocationNormalized, RouteLocationNormalizedLoaded, RouteRecordRaw, RouterView, useRoute, useRouter } from "vue-router";
 import s from './Welcome.module.scss'
-import { defineComponent, ref, Transition, VNode, watchEffect } from "vue";
-
+import { ref, Transition, VNode, watchEffect } from "vue";
+import useSwipe from "../hooks/useSwipe";
+import throttle from "../utils/throttle";
 
 const routeActionRef = ref({
   enter: s.slide_fade_enter_from,
@@ -27,12 +28,28 @@ const Welcome = {
     next()
   },
   setup(){
+    const main = ref<HTMLElement>()
+    const { direction, swiping } = useSwipe(main, { beforeStart: e => e.preventDefault() })
+
+    const route = useRoute()
+    const router = useRouter()
+    const replace = throttle((path)=>{
+      path && router.replace(path as string)
+    },500)
+    watchEffect(()=>{
+      if (swiping.value && direction.value === 'left') {
+        replace(route?.meta?.next)
+      }
+      if (swiping.value && direction.value === "right") {
+        replace(route?.meta?.from)
+      }
+    })
     return ()=> <div class={[s.wrapper, 'flex-col','items-center']}>
       <header class='flex-col items-center'>
         <svg-icon class={s.icon} icon="mangosteen"/>
         <h1>山竹记账</h1>
       </header>
-      <main class="grow-1">
+      <main class="grow-1" ref={main}>
         <RouterView name="main">
           {
             ({Component:C,route:R}:{Component: VNode,route: RouteLocationNormalizedLoaded }) =>
@@ -49,6 +66,5 @@ const Welcome = {
     </div>
   }
 }
-// console.log(Welcome)
 
 export default Welcome
