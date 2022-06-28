@@ -1,0 +1,13 @@
+.navbar{
+  background: linear-gradient(to bottom, var(--navbar-bg-start) 0%, var(--navbar-bg-end) 100%);
+  fill: var(--navbar-text-color);
+  color: var(--navbar-text-color);
+  padding: 18px 8px 12px;
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  .icon{
+    display: flex;
+    margin-right: 10px;
+  }
+}
