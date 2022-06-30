@@ -1,6 +1,6 @@
 import { defineComponent } from 'vue';
 import { RouterLink } from 'vue-router';
-import Overlay from '../Overlay';
+import Overlay from '../../components/Overlay';
 import s from './index.module.scss'
 export default defineComponent({
   name: 'SideBar',

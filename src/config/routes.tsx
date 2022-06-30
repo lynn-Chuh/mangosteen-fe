@@ -1,9 +1,4 @@
 import { RouteRecordRaw } from 'vue-router';
-import Welcome from '../views/Welcome';
-import Frist from '../components/welcome/Frist';
-import Second from '../components/welcome/Second';
-import Third from '../components/welcome/Third';
-import Forth from '../components/welcome/Forth';
 
 
 declare module 'vue-router' {
@@ -17,7 +12,7 @@ const _import = (path:string,suffix = 'tsx') => () => import(`../${path}.${suffi
 export const routes:RouteRecordRaw[] = [
   {
     path:'/welcome',
-    component: Welcome,
+    component: _import('views/WelcomePage/inedx'),
     children:[
       {
         path:'/',
@@ -26,8 +21,8 @@ export const routes:RouteRecordRaw[] = [
       {
         path:'1',
         components: {
-          main: Frist,
-          footer: _import('components/welcome/welcomeActions')
+          main: _import('layout/Welcome/Frist'),
+          footer: _import('layout/Welcome/welcomeActions')
         },
         meta:{next:'/welcome/2',from:''},
         props:{
@@ -40,8 +35,8 @@ export const routes:RouteRecordRaw[] = [
       {
         path:'2',
         components: {
-          main: Second,
-          footer: _import('components/welcome/welcomeActions')
+          main: _import('layout/Welcome/Second'),
+          footer: _import('layout/Welcome/welcomeActions')
         },
         meta:{next:'/welcome/3',from:'/welcome/1'},
         props:{
@@ -53,8 +48,8 @@ export const routes:RouteRecordRaw[] = [
       {
         path:'3',
         components: {
-          main: Third,
-          footer: _import('components/welcome/welcomeActions')
+          main: _import('layout/Welcome/Third'),
+          footer: _import('layout/Welcome/welcomeActions')
         },
         meta:{next:'/welcome/4',from:'/welcome/2'},
         props:{
@@ -66,8 +61,8 @@ export const routes:RouteRecordRaw[] = [
       {
         path:'4',
         components:{
-          main: Forth,
-          footer: _import('components/welcome/welcomeActions')  
+          main: _import('layout/Welcome/Forth'),
+          footer: _import('layout/Welcome/welcomeActions')  
         },
         meta:{next:'',from:'/welcome/3'},
         props:{
@@ -85,7 +80,7 @@ export const routes:RouteRecordRaw[] = [
   },
   {
     path:'/start',
-    component: _import('views/Start')
+    component: _import('views/StartPage/index')
   }
 ]
 

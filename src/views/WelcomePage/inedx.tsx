@@ -1,8 +1,8 @@
 import { NavigationGuardNext, RouteLocationNormalized, RouteLocationNormalizedLoaded, RouteRecordRaw, RouterView, useRoute, useRouter } from "vue-router";
-import s from './Welcome.module.scss'
+import s from './index.module.scss'
 import { ref, Transition, VNode, watchEffect } from "vue";
-import useSwipe from "../hooks/useSwipe";
-import throttle from "../utils/throttle";
+import useSwipe from "../../hooks/useSwipe";
+import throttle from "../../utils/throttle";
 
 const routeActionRef = ref({
   enter: s.slide_fade_enter_from,
@@ -10,7 +10,7 @@ const routeActionRef = ref({
 })
 
 const Welcome = {
-  name: 'Welcome',
+  name: 'WelcomePage',
   beforeRouteUpdate(to:RouteLocationNormalized,from:RouteLocationNormalized,next:NavigationGuardNext){
     const _t = parseFloat(to.path.slice(-1))
     const _f = parseFloat(from.path.slice(-1))

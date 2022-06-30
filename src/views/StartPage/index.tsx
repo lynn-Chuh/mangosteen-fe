@@ -1,12 +1,12 @@
 import { defineComponent, ref } from "vue";
-import Button from "../components/Button";
-import Center from "../components/Center";
-import FloatButton from "../components/FloatButton";
-import NavBar from "../components/NavBar";
-import SideBar from "../components/SideBar";
-import s from "./Start.module.scss";
+import Button from "../../components/Button";
+import Center from "../../components/Center";
+import FloatButton from "../../components/FloatButton";
+import NavBar from "../../layout/NavBar";
+import SideBar from "../../layout/SideBar";
+import s from "./index.module.scss";
 export default defineComponent({
-  name: "Start",
+  name: "StartPage",
   setup() {
     const OverlayVisible = ref(false);
     const onClickMenu = () => {
