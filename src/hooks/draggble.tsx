@@ -41,7 +41,6 @@ export default (element: Ref<HTMLElement | undefined>, options?: Options) => {
   const handleTouchStart = () => {
     canClick.value = false;
     if (element.value) transition.value = 'none';
-    console.log('handleTouchStart')
   };
   const handleTouchMove = (event: TouchEvent) => {
     event.preventDefault()
@@ -52,14 +51,12 @@ export default (element: Ref<HTMLElement | undefined>, options?: Options) => {
       left.value = touch.clientX - ($elRect?.width || 0) / 2;
       top.value = touch.clientY - ($elRect?.height || 0) / 2;
     }
-    console.log('handleTouchMove')
   };
 
   const handleTouchEnd = () => {
     if (!canClick.value) return; // 解决点击事件和touch事件冲突的问题
     if (element.value) transition.value = "all 0.3s";
     checkDraggablePosition();
-    console.log('handleTouchEnd')
   };
 
   const handleMouseMove = (event:MouseEvent)=>{
