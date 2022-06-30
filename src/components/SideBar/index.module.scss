@@ -1,0 +1,37 @@
+.wrapper{
+
+}
+.user{
+  background: #5C33BE;
+  color: var(--navbar-text-color);
+  padding: 30px 16px 30px;
+  h2{
+    font-size: 18px;
+    line-height: 1.8;
+    letter-spacing: 4px;
+  }
+  p{
+    font-size: 14px;
+    color: #e2dbf5;
+    margin-top: 4px;
+  }
+}
+.action {
+  $paddingTop: 8px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding: $paddingTop 16px;
+  font-size: 16px;
+  &_list {
+    padding-top: $paddingTop;
+    font-size: 20px;
+  }
+  .text{
+    color: #333;
+  }
+  > .icon {
+    font-size: 1.5em;
+    margin-right: 12px;
+  }
+}
