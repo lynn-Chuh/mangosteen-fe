@@ -7,7 +7,7 @@ import {
   Teleport,
   TeleportProps,
   Transition,
-  watchEffect,
+  watch,
 } from "vue";
 import { callInterceptor, Interceptor } from "../../utils/interceptor";
 import { isNumeric } from "../../utils/validate";
@@ -54,14 +54,15 @@ export default defineComponent({
   setup(props, context) {
     const zIndex = ref<number>();
 
-    watchEffect(()=>{
-      if(props.show){
-        if (props.zIndex !== undefined) {
-          globalZIndex = +props.zIndex;
+    watch(()=>[props.show,props.zIndex],([p_show,p_zIndex])=>{
+      if(p_show){
+        if (p_zIndex !== undefined) {
+          globalZIndex = +p_zIndex;
         }
         zIndex.value = ++globalZIndex;
       }
     })
+
     const style = computed(() => {
       const style: CSSProperties = {
         zIndex: zIndex.value
