@@ -7,6 +7,7 @@ import {
   Teleport,
   TeleportProps,
   Transition,
+  watchEffect,
 } from "vue";
 import { callInterceptor, Interceptor } from "../../utils/interceptor";
 import { isNumeric } from "../../utils/validate";
@@ -14,6 +15,8 @@ import s from "./index.module.scss";
 
 
 type Position = "top" | "left" | "right" | "bottom";
+
+let globalZIndex = 200;
 
 export default defineComponent({
   name: "Overlay",
@@ -46,13 +49,22 @@ export default defineComponent({
     },
     zIndex:{
       type:[Number,String],
-      default:2000
     }
   },
   setup(props, context) {
+    const zIndex = ref<number>();
+
+    watchEffect(()=>{
+      if(props.show){
+        if (props.zIndex !== undefined) {
+          globalZIndex = +props.zIndex;
+        }
+        zIndex.value = ++globalZIndex;
+      }
+    })
     const style = computed(() => {
       const style: CSSProperties = {
-        zIndex: isNumeric(props.zIndex) ? parseFloat(props.zIndex) : props.zIndex,
+        zIndex: zIndex.value
       };
       if (props.duration) {
         style.animationDuration = `${props.duration}s`;
