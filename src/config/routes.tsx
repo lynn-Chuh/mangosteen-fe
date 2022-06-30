@@ -14,7 +14,7 @@ export const routes: RouteRecordRaw[] = [
     component: _import("views/WelcomePage/inedx"),
     children: [
       {
-        path: "/",
+        path: "",
         redirect: "/welcome/1",
       },
       {
@@ -83,7 +83,7 @@ export const routes: RouteRecordRaw[] = [
     path: "/items",
     component: _import("views/ItemPage"),
     children: [
-      { path: "/", component: _import("layout/Item/ItemList") },
+      { path: "", component: _import("layout/Item/ItemList") },
       { path: "create", component: _import("layout/Item/ItemCreate") },
     ],
   },
