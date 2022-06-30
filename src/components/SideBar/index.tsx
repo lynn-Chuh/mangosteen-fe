@@ -24,25 +24,23 @@ export default defineComponent({
     ]
 
     return ()=> <Overlay show={props.show} onUpdate:show={handleUpdateShow} position="left" width="70vw">
-      <div class={s.wrapper}>
-        <section class={s.user}>
-          <h2>未登录用户</h2>
-          <p>点击这里登陆</p>
-        </section>
-        <nav>
-          <ul class={s.action_list}>
-            { ...actions.map((_)=><li key={_.name}>
-                <RouterLink to={_.to} class={s.action}  >
-                  <svg-icon icon={_.icon} class={s.icon}/>
-                  <span class={s.text}>{_.name}</span>
-                </RouterLink>
+      <section class={s.user}>
+        <h2>未登录用户</h2>
+        <p>点击这里登陆</p>
+      </section>
+      <nav>
+        <ul class={s.action_list}>
+          { ...actions.map((_)=><li key={_.name}>
+              <RouterLink to={_.to} class={s.action}  >
+                <svg-icon icon={_.icon} class={s.icon}/>
+                <span class={s.text}>{_.name}</span>
+              </RouterLink>
 
-              </li>
-              )
-            }
-          </ul>
-        </nav>
-      </div>
+            </li>
+            )
+          }
+        </ul>
+      </nav>
     </Overlay>
   }
 })
