@@ -1,36 +1,25 @@
 import { defineComponent, ref } from "vue";
+import { RouterLink } from "vue-router";
 import Button from "../../components/Button";
 import Center from "../../components/Center";
 import FloatButton from "../../components/FloatButton";
-import NavBar from "../../layout/NavBar";
-import SideBar from "../../layout/SideBar";
+import MainLayout from "../../layout/MainLayout";
 import s from "./index.module.scss";
 export default defineComponent({
   name: "StartPage",
   setup() {
-    const OverlayVisible = ref(false);
-    const onClickMenu = () => {
-      OverlayVisible.value = true;
-    };
     return () => (
-      <div>
-        <nav>
-          <NavBar>
-            {{
-              icon: () => <svg-icon icon="menu" onClick={onClickMenu} />,
-              default: () => "山竹记账",
-            }}
-          </NavBar>
-        </nav>
+      <MainLayout sidebar>
         <Center class={s.icon_wrapper}>
           <svg-icon icon="pig" class={s.icon} />
         </Center>
         <div class={s.button_wrapper}>
-          <Button class={s.button}>开始记账</Button>
+          <RouterLink to="/items">
+            <Button class={s.button}>开始记账</Button>
+          </RouterLink>
         </div>
-        <FloatButton icon="add" draggable/>
-        <SideBar v-model:show={OverlayVisible.value}/>
-      </div>
+        <FloatButton icon="add" draggable />
+      </MainLayout>
     );
   },
 });
