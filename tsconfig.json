@@ -11,7 +11,7 @@
     "isolatedModules": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "lib": ["esnext", "dom"]
+    "lib": ["esnext", "dom", "dom.Iterable"]
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
   "references": [{ "path": "./tsconfig.node.json" }]

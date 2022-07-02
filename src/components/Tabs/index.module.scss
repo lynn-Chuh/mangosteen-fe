@@ -1,0 +1,30 @@
+.tabs{
+  position: relative;
+  &_nav{
+    display: flex;
+    align-items: center;
+    background: var(--navbar-bg-end);
+    margin-top: -1px;
+    &_indicator{
+      position: absolute;
+      height: 4px;
+      border-radius: 10px;
+      width: 50px;
+      background: rgba($color: #fff, $alpha: 0.7);
+      transition: left 0.5s ease-in-out;
+    }
+    &_item{
+      flex-grow: 1;
+      flex-shrink: 0;
+      text-align: center;
+      color: var(--navbar-text-color);
+      padding: 14px 0;
+      &.selected{
+        color: var(--navbar-text-color);
+        // color: currentColor;
+        // font-weight: 500;
+        // color: red;
+      }
+    }
+  }
+}
