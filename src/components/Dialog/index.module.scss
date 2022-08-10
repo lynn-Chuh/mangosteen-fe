@@ -1,0 +1,29 @@
+.dialog{
+  height: 100%;
+  &_header{
+    background: #5C33BE;
+    color: #FFFFFF;
+    padding: 16px;
+    font-size: 18px;
+  }
+  &_content{
+    padding: 16px;
+  }
+  &_footer{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 16px;
+    font-size: 16px;
+    font-weight: 500;
+    .action{
+      cursor: pointer;
+      &:not(:last-child){
+        margin-right: 28px;
+      }
+      &:hover{
+        font-weight: 600;
+      }
+    }
+  }
+}

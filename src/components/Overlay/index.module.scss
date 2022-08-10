@@ -22,7 +22,7 @@
 
 .overlay_enter_active,
 .overlay_leave_active {
-  transition-property: all;
+  transition-property: transform;
   transition-timing-function: ease-out;
 }
 
@@ -39,6 +39,7 @@
 .bottom_leave{
   transform: translateY(100%);
 }
+
 
 .fade_in{
   opacity: 0;
